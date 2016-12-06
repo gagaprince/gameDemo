@@ -7,6 +7,7 @@ require('../../engine/gaga_c/scenes/QCScene.js');
 require('../../engine/gaga_c/sprites/QCSprite.js');
 require('../../engine/gaga_c/sprites/QCSpriteFrame.js');
 require('../../engine/gaga_c/sprites/QCSpriteFrameCache.js');
+require('../../engine/gaga_c/sprites/QCLabel.js');
 require('../../engine/gaga_c/load/QCSAXParser.js');
 require('../../engine/gaga_c/layers/QCLayer.js');
 require('../../engine/gaga_c/load/QCTexture2D.js');

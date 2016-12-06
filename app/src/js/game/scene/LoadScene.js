@@ -4,38 +4,17 @@ var LoaderScene = qc.Scene.extend({
     _count : 0,
     _label : null,
     _className:"LoaderScene",
+    timer:null,
     init : function(){
         var self = this;
-
-        //logo
-        var logoWidth = 160;
-        var logoHeight = 200;
-
-        // bg
-//        var bgLayer = self._bgLayer = qc.LayerColor.create(qc.color(32, 32, 32, 255));
-//        bgLayer.setPosition(qc.visibleRect.bottomLeft);
-//        self.addChild(bgLayer, 0);
-
-        //image move to qcSceneFile.js
-        var fontSize = 24, lblHeight =  -logoHeight / 2 + 100;
-        //loading percent
-//        var label = self._label = qc.LabelTTF.create("Loading... 0%", "Arial", fontSize);
-//        label.setPosition(qc.pAdd(qc.visibleRect.center, qc.p(0, lblHeight)));
-//        label.setColor(qc.color(180, 180, 180));
-       // bgLayer.addChild(this._label, 10);
+        var fontSize = 24;
+        var winSize = qc.director.getWinSize();
+        var middlePos = qc.p(winSize.width/2,winSize.height/2);
+        var label = self._label = qc.Label.create("Loading... 0%", "Arial", fontSize);
+        label.setPosition(middlePos);
+        label.setColor(qc.color(180, 180, 180));
+        this.addChild(this._label, 10);
         return true;
-    },
-
-    _initStage: function (img, centerPos) {
-        var self = this;
-        var texture2d = self._texture2d = new qc.Texture2D();
-        texture2d.initWithElement(img);
-        texture2d.handleLoadedTexture();
-        var logo = self._logo = qc.Sprite.create(texture2d);
-        logo.setScale(qc.contentScaleFactor());
-        logo.x = centerPos.x;
-        logo.y = centerPos.y;
-        self._bgLayer.addChild(logo, 10);
     },
 
     onEnter: function () {
@@ -47,8 +26,9 @@ var LoaderScene = qc.Scene.extend({
 
     onExit: function () {
         qc.Node.prototype.onExit.call(this);
-        var tmpStr = "Loading... 0%";
-        //this._label.setString(tmpStr);
+        if(this.timer){
+            clearInterval(this.timer);
+        }
     },
 
     /**
@@ -72,7 +52,9 @@ var LoaderScene = qc.Scene.extend({
             if(self.cb)
                 self.cb();
         });
-        //self.schedule(self._updatePercent);
+        this.timer = setInterval(function(){
+            self._updatePercent();
+        },0.1);
         //setInterval(self._updatePercent,100);
     },
 
@@ -82,8 +64,7 @@ var LoaderScene = qc.Scene.extend({
         var length = self._length;
         var percent = (count / length * 100) | 0;
         percent = Math.min(percent, 100);
-        qc.log(percent);
-        //self._label.setString("Loading... " + percent + "%");
+        self._label.setString("Loading... " + percent + "%");
         //if(count >= length) self.unschedule(self._updatePercent);
     }
 });
