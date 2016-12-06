@@ -1,26 +1,104 @@
 var res = {
-    bg: "res/images/background.png",
-    fishes:"res/images/fishes.png",
-    fishplist:"res/plists/fishes.plist"
+    smallPeople1:"res/images/404.png",
+    smallPeople2:"res/images/405.png",
+    smallPeople3:"res/images/406.png",
+    smallPeople4:"res/images/407.png",
+    smallPeople5:"res/images/408.png",
+    smallPeople6:"res/images/409.png",
+    smallPeople7:"res/images/410.png",
+    smallPeople8:"res/images/411.png",
+    smallPeople9:"res/images/412.png",
+    smallPeople10:"res/images/413.png",
+    smallPeople11:"res/images/414.png",
+    smallPeople12:"res/images/415.png",
+    smallPeople13:"res/images/416.png",
+    smallPeople14:"res/images/417.png",
+    smallPeople15:"res/images/418.png",
+    smallPeople16:"res/images/419.png",
+    smallPeople17:"res/images/420.png",
+    smallPeople18:"res/images/421.png",
+    smallPeople19:"res/images/422.png",
+    smallPeople20:"res/images/423.png",
+    smallPeople21:"res/images/424.png",
+    smallPeople22:"res/images/425.png",
+    smallPeople23:"res/images/426.png",
+    smallPeople24:"res/images/427.png",
+    smallPeople25:"res/images/428.png",
+    smallPeople26:"res/images/429.png",
+    smallPeople27:"res/images/430.png",
+    smallPeople28:"res/images/431.png",
+    smallPeople29:"res/images/432.png",
+    smallPeople30:"res/images/433.png",
+    smallPeople31:"res/images/434.png",
+    background:"res/images/background.png"
 };
 var start_resources=[
-    res.bg,
-    res.fishes,
-    res.fishplist
+    res.smallPeople1,
+    res.smallPeople2,
+    res.smallPeople3,
+    res.smallPeople4,
+    res.smallPeople5,
+    res.smallPeople6,
+    res.smallPeople7,
+    res.smallPeople8,
+    res.smallPeople9,
+    res.smallPeople10,
+    res.smallPeople11,
+    res.smallPeople12,
+    res.smallPeople13,
+    res.smallPeople14,
+    res.smallPeople15,
+    res.smallPeople16,
+    res.smallPeople17,
+    res.smallPeople18,
+    res.smallPeople19,
+    res.smallPeople20,
+    res.smallPeople22,
+    res.smallPeople23,
+    res.smallPeople24,
+    res.smallPeople25,
+    res.smallPeople26,
+    res.smallPeople27,
+    res.smallPeople28,
+    res.smallPeople29,
+    res.smallPeople30,
+    res.smallPeople31,
+    res.background
 ];
-var g_resources = [
-    //image
-
-    //fnt
-    //tmx
-
-    //bgm
-
-    //effect
-
-    // ogg
+var peopleRes=[
+    res.smallPeople1,
+    res.smallPeople2,
+    res.smallPeople3,
+    res.smallPeople4,
+    res.smallPeople5,
+    res.smallPeople6,
+    res.smallPeople7,
+    res.smallPeople8,
+    res.smallPeople9,
+    res.smallPeople10,
+    res.smallPeople11,
+    res.smallPeople12,
+    res.smallPeople13,
+    res.smallPeople14,
+    res.smallPeople15,
+    res.smallPeople16,
+    res.smallPeople17,
+    res.smallPeople18,
+    res.smallPeople19,
+    res.smallPeople20,
+    res.smallPeople22,
+    res.smallPeople23,
+    res.smallPeople24,
+    res.smallPeople25,
+    res.smallPeople26,
+    res.smallPeople27,
+    res.smallPeople28,
+    res.smallPeople29,
+    res.smallPeople30,
+    res.smallPeople31
 ];
 module.exports = {
     res:res,
-    start_resources:start_resources
+    start_resources:start_resources,
+    peopleRes:peopleRes
 };
