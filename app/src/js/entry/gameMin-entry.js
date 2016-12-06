@@ -5,6 +5,7 @@ require('../../engine/gaga_c/QCzepto.js');
 require('../../engine/gaga_c/classes/QCNode.js');
 require('../../engine/gaga_c/scenes/QCScene.js');
 require('../../engine/gaga_c/sprites/QCSprite.js');
+require('../../engine/gaga_c/sprites/QCLabel.js');
 require('../../engine/gaga_c/sprites/QCSpriteFrame.js');
 require('../../engine/gaga_c/sprites/QCSpriteFrameCache.js');
 require('../../engine/gaga_c/load/QCSAXParser.js');
