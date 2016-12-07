@@ -30,7 +30,9 @@ var GameLayer = qc.Layer.extend({
     moveAction:function(){
         var action1 = qc.MoveTo.create(2,qc.p(100,100));
         var action2 = qc.MoveTo.create(2,qc.p(200,300));
-        var allAction = qc.Sequence.create([action1,action2]);
+        var action3 = qc.ScaleTo.create(1,0.5);
+        var action4 = qc.RotateTo.create(0.5,135);
+        var allAction = qc.Sequence.create([action1,action2,action3,action4]);
         this.guaiwuSprite.runAction(allAction);
     },
 
