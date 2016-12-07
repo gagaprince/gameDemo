@@ -1,20 +1,17 @@
-var PanLayer = require('../layer/PanLayer.js');
+"use strict";
 var res = require('../resource.js').res;
+var GuaiwuSprite = require('../sprite/GuaiwuSprite');
 var GameLayer = qc.Layer.extend({
     bgSprit:null,
 
-    panLayer:null,
-
     winSize:null,
 
-    hasWin:false,
-
-    clickNum:0,
+    guaiwuSprite:null,
 
     init:function(){
         this.winSize = qc.director.getWinSize();
         this.initBg();
-        this.initPan();
+        this.initSprite();
         this.initListener();
     },
     initBg:function(){
@@ -24,34 +21,19 @@ var GameLayer = qc.Layer.extend({
         this.bgSprit.setPosition(qc.p(winSize.width/2,winSize.height/2));
         this.bgSprit.setScale(0.5);
     },
-    initPan:function(){
-        var winSize = this.winSize;
-        var panLay = PanLayer.create();
-        this.addChild(panLay);
-        panLay.setPosition(qc.p(winSize.width/2,winSize.height/2));
-        panLay.setScale(0.5);
-        this.panLayer = panLay;
+    initSprite:function(){
+        this.guaiwuSprite = GuaiwuSprite.create();
+        this.addChild(this.guaiwuSprite);
+        this.guaiwuSprite.setPosition(qc.p(100,300));
     },
-    checkGame:function(){
-        var panLayer = this.panLayer;
-        var isWin = true;
-        for(var x=0;x<3;x++){
-            for(var y=0;y<3;y++){
-                var winSprite = panLayer.findWinSprite(x,y);
-                if(!winSprite.isOpen()){
-                    isWin = false;
-                    break;
-                }
-            }
-        }
-        if(isWin){
-            var _this = this;
-            setTimeout(function(){
-                alert("你赢了！你点击了"+_this.clickNum+"下");
-            });
-            this.hasWin = true;
-        }
+
+    moveAction:function(){
+        var action1 = qc.MoveTo.create(2,qc.p(100,100));
+        var action2 = qc.MoveTo.create(2,qc.p(200,300));
+        var allAction = qc.Sequence.create([action1,action2]);
+        this.guaiwuSprite.runAction(allAction);
     },
+
     initListener:function(){
         var _t = this;
         qc.EventManager.addListener({
@@ -64,15 +46,7 @@ var GameLayer = qc.Layer.extend({
     },
     //如果需要阻止冒泡 则 使用stopPropagation
     onTouchBegan:function(touch,event){
-        if(this.hasWin)return;
-        var touchLocation = touch.getLocation();
-        var panLayer = this.panLayer;
-        var indexP = panLayer.checkPan(touchLocation);
-        if(indexP!=null){
-            this.clickNum ++;
-            panLayer.clickIndexP(indexP);
-        }
-        this.checkGame();
+        this.moveAction();
     },
     onTouchMoved:function(touch,event){
 
