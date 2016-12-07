@@ -1,3 +1,4 @@
+var qc = require('./../classes/QCClass.js');
 qc.Label = qc.Sprite.extend({
     _selfString:"",
     _fontStyle:"黑体",
@@ -50,3 +51,4 @@ qc.Label = qc.Sprite.extend({
 qc.Label.create = function(str,fontstyle,fontsize){
     return new qc.Label(str,fontstyle,fontsize);
 }
+module.exports = qc;
